@@ -22,4 +22,10 @@ jobs:
       - name: Run test
         run: mvn test
       - name: maven checkstyle
-        run: mvn -B verify checkstyle:checkstyle   
+        run: mvn -B verify checkstyle:checkstyle  
+      - name: install sonarcloud
+        uses: kitabisa/sonarqube-action@v1.2.0
+        with:
+            host: ${{ secrets.SONAR_URL }}
+            login: ${{ secrets.SONAR_TOKEN}}
+      
